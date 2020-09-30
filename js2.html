@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js feature 2</title>
+</head>
+<body>
+    <h1>參考來源：<a target=_blank href="https://codepen.io/debby87059/pen/KrgXBv">JS- BMI 計算</a></h1>
+
+    <h2>JS-BMI計算</h2> 
+
+    <label>身高 cm</label>
+    <input id="height" type="text" placeholder="輸入身高" value=""/>
+    <label>體重 kg</label>
+    <input id="weight" type="text" placeholder="輸入體重" value=""/>
+    <input id="btn" type="button" value="計算"/>
+    <hr/>
+    <p>結果：</p>
+    <ul class="list"></ul>
+
+</body>
+<script>
+    var list = document.querySelector('.list');
+
+document.getElementById('btn').onclick = function(){
+  var str='';
+  var height = parseInt(document.getElementById('height').value)/100;
+  var weight = parseInt(document.getElementById('weight').value);
+  var height2 = height*height;
+  var BMI = weight/height2;
+  console.log(BMI);
+  
+  if(BMI <= 18){
+    BMI = BMI.toFixed(2);
+    str='<li>'+BMI+'體重過輕</li>';
+  }else if(18<=BMI && BMI<=25){
+    BMI = BMI.toFixed(2);
+    str='<li>'+BMI+'體重正常</li>';
+  }
+  else{
+    BMI = BMI.toFixed(2);
+    str='<li>'+BMI+'體重過重</li>';
+  }
+  list.innerHTML = str;
+}
+</script>
+</html>
