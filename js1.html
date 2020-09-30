@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js feature 1</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <h1>參考來源：<a  target=_blank href="https://kevinshu1995.github.io/blog/JSDungeons/20200219/99449695/">用 JavaScript 切出九九乘法表 | JS地下城 - 001</a></h1>
+    <ul class="wrap" id="mainList">
+        <li class="l-card-title">
+          <h1>九九乘法表</h1>
+          <h2>MULTIPLICATION CHART</h2>
+        </li>
+        <li class="l-card">
+          <ul class="l-card__wrap">
+            <li class="l-card__title">2</li>
+            <li>2x1=2</li>
+            <li>2x2=2</li>
+            <li>2x3=2</li>
+            <li>2x4=2</li>
+            <li>2x5=21</li>
+            <li>2x6=2</li>
+            <li>2x7=2</li>
+            <li>2x8=2</li>
+            <li>2x9=2</li>
+          </ul>
+        </li>
+      </ul>
+</body>
+<script>
+let mainList = document.getElementById('mainList');
+let chartNum = 8;
+let strInner = '';
+updateList();
+
+function updateList() {
+	//title
+	let strOut = `<li class="l-card-title">
+    	<h1>九九乘法表</h1>
+    	<h2>MULTIPLICATION CHART</h2>
+  	</li>`
+	for (let i = 0; i < chartNum; i++) {
+		innerList(i + 2)
+		strOut += `<li class="l-card">
+     					<ul class="l-card__wrap">
+        					<li class="l-card__title">${i + 2}</li>
+        					${strInner}
+      					</ul>
+    				</li>`
+		strInner = '';
+	}
+	mainList.innerHTML = strOut;
+}
+
+function innerList(num) {
+	for (let i = 0; i < 9; i++) {
+		strInner += `<li>${num}x${i + 1}=${num * (i + 1)}</li>`
+	}
+}
+</script>
+</html>
